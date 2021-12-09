@@ -17,6 +17,18 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <textarea id="author" name="author" class="form-control" type="text"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="year">Release Year</label>
+                <textarea id="year" name="year" class="form-control" type="text"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <textarea id="genre" name="genre" class="form-control" type="text"></textarea>
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>

@@ -1,9 +1,13 @@
 package com.codeup.adlister.models;
 
 public class Ad {
+    private String username;
     private long id;
     private long userId;
     private String title;
+    private String author;
+    private String year;
+    private String genre;
     private String description;
 
     public Ad(long id, long userId, String title, String description) {
@@ -18,6 +22,38 @@ public class Ad {
         this.title = title;
         this.description = description;
     }
+
+    public Ad(long userId, String title, String description, String author, String year, String genre) {
+        this.userId = userId;
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.genre = genre;
+        this.description = description;
+    }
+
+    public Ad(long id, long user_id, String title, String description, String author, String year, String genre) {
+
+        this.id = id;
+        this.userId = user_id;
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.genre = genre;
+        this.description = description;
+
+    }
+
+//    public Ad(long user_id, String title, String description, String author, String year, String genre) {
+//
+//        this.id = user_id;
+//        this.title = title;
+//        this.author = author;
+//        this.year = year;
+//        this.genre = genre;
+//        this.description = description;
+//
+//    }
 
     public long getId() {
         return id;
@@ -49,5 +85,29 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }
