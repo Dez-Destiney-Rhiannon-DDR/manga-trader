@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -59,6 +60,25 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
+    }
+
+    @Override
+    public Ad findById(long id) {
+        try {
+            String sql = "SELECT * FROM mangas WHERE id = ? LIMIT 1";
+
+            PreparedStatement stmt = connection.prepareStatement(sql); //establishing connection
+            stmt.setLong(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { //If user is found, retrieve this data
+                return this.extractAd(rs);
+            }
+
+        } catch (SQLException throwables) { //If user is not found, throw exception
+            System.out.println("Cannot find user by that name");
+        }
+        return null;
     }
 
     private String createInsertQuery(Ad ad) {

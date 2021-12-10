@@ -14,9 +14,12 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <h3>${ad.description}</h3>
-            <h6>Posted by: ${ad.userId}</h6>
+            <h2>Title: ${ad.title}</h2>
+            <h3>Description: ${ad.description}</h3>
+
+<%--            //add link here to go to individual ad--%>
+
+            <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}">Click for details</a>
         </div>
     </c:forEach>
 </div>
