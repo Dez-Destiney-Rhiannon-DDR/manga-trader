@@ -28,6 +28,7 @@ public class ListAdsDao implements Ads {
         return ad.getId();
     }
 
+//test
     @Override
     public Ad findById(long id) {
 
