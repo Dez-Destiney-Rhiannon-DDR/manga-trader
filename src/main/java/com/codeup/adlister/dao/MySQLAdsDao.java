@@ -90,23 +90,6 @@ public class MySQLAdsDao implements Ads {
     }
 
     public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
-//        try {
-//            String sql = "SELECT * FROM mangas WHERE title = ?";
-//
-//            PreparedStatement stmt = connection.prepareStatement(sql); //establishing connection
-//            stmt.setString(1, title);
-//
-//            ResultSet rs = stmt.executeQuery();
-//            if (rs.next()) { //If ad is found, retrieve this data
-//
-//                System.out.println(rs);
-//                createAdsFromResults(rs);
-//            }
-//
-//        } catch (SQLException throwables) { //If user is not found, throw exception
-//            System.out.println("Cannot find user by that name");
-//        }
-//        return null;
         Statement stmt = null;
         ResultSet resultSet = null;
         String myQuery = "SELECT * FROM mangas WHERE title = ?";
@@ -117,7 +100,24 @@ public class MySQLAdsDao implements Ads {
 
             return createAdsFromResults(resultSet);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error finding your searched ads.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> allById(Long id) {
+        Statement stmt = null;
+        ResultSet resultSet = null;
+        try {
+            String myQuery = "SELECT * FROM mangas WHERE user_id = ?";
+
+            PreparedStatement statement = connection.prepareStatement(myQuery);
+            statement.setLong(1, id);
+            resultSet = statement.executeQuery();
+
+            return createAdsFromResults(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding your personal ads.", e);
         }
     }
 
