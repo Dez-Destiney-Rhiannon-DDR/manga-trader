@@ -62,6 +62,25 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad findById(long id) {
+        try {
+            String sql = "SELECT * FROM mangas WHERE id = ? LIMIT 1";
+
+            PreparedStatement stmt = connection.prepareStatement(sql); //establishing connection
+            stmt.setLong(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { //If user is found, retrieve this data
+                return this.extractAd(rs);
+            }
+
+        } catch (SQLException throwables) { //If user is not found, throw exception
+            System.out.println("Cannot find user by that name");
+        }
+        return null;
+    }
+
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
             + "(" + ad.getUserId() + ", "
