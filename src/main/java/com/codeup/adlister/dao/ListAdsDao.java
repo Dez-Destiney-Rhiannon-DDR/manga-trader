@@ -28,7 +28,10 @@ public class ListAdsDao implements Ads {
         return ad.getId();
     }
 
+//test
     @Override
+    public Ad findById(long id) {
+
     public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
         return null;
     }

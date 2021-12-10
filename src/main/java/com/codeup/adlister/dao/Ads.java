@@ -11,6 +11,9 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
+
+//    find by id
+    Ad findById(long id);
     List<Ad> searchAdsFromMangaList(String title) throws SQLException;
 
     List<Ad> allById(Long id);

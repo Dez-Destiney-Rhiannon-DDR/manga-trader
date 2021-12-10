@@ -62,6 +62,25 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad findById(long id) {
+        try {
+            String sql = "SELECT * FROM mangas WHERE id = ? LIMIT 1";
+
+            PreparedStatement stmt = connection.prepareStatement(sql); //establishing connection
+            stmt.setLong(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { //If user is found, retrieve this data
+                return this.extractAd(rs);
+            }
+
+        } catch (SQLException throwables) { //If user is not found, throw exception
+            System.out.println("Cannot find user by that name");
+        }
+        return null;
+    }
+
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
             + "(" + ad.getUserId() + ", "
@@ -92,10 +111,10 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
         Statement stmt = null;
         ResultSet resultSet = null;
-        String myQuery = "SELECT * FROM mangas WHERE title = ?";
+        String myQuery = "SELECT * FROM mangas WHERE title LIKE ?";
         try {
             PreparedStatement statement = connection.prepareStatement(myQuery);
-            statement.setString(1, title);
+            statement.setString(1, "%" + title + "%");
             resultSet = statement.executeQuery();
 
             return createAdsFromResults(resultSet);
