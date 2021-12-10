@@ -14,6 +14,8 @@
     </div>
 
     <button class="btn btn-secondary">Edit your profile</button>
+    <a href="/ads/create"><button class="btn btn-secondary">Create an ad</button></a>
+
 
     <h2>Your ads:</h2>
 
