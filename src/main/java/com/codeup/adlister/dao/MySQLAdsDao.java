@@ -107,4 +107,37 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
+        Statement stmt = null;
+        ResultSet resultSet = null;
+        String myQuery = "SELECT * FROM mangas WHERE title LIKE ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(myQuery);
+            statement.setString(1, "%" + title + "%");
+            resultSet = statement.executeQuery();
+
+            return createAdsFromResults(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding your searched ads.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> allById(Long id) {
+        Statement stmt = null;
+        ResultSet resultSet = null;
+        try {
+            String myQuery = "SELECT * FROM mangas WHERE user_id = ?";
+
+            PreparedStatement statement = connection.prepareStatement(myQuery);
+            statement.setLong(1, id);
+            resultSet = statement.executeQuery();
+
+            return createAdsFromResults(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding your personal ads.", e);
+        }
+    }
+
 }
