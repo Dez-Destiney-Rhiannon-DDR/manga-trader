@@ -20,6 +20,7 @@
 <h1>Register</h1>
 
 <h1>Please fill in your information</h1>
+<%--  error message partial --%>
 <form method="POST" action="/register">
 
     <div class="form-group">
