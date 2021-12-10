@@ -22,6 +22,10 @@
 
       <h1>Posted By: ${username}</h1>
 
+      <a href="${pageContext.request.contextPath}/ads"><button type="submit">Back to Ads</button>
+      </a>
+
+
 
 
 

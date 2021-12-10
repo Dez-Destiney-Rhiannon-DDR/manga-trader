@@ -17,9 +17,10 @@
             <h2>Title: ${ad.title}</h2>
             <h3>Description: ${ad.description}</h3>
 
-<%--            //add link here to go to individual ad--%>
+<%--            //add link here--%>
 
-            <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}">Click for details</a>
+            <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}"><button type="submit">Click here for details</button>
+            </a>
         </div>
     </c:forEach>
 </div>
