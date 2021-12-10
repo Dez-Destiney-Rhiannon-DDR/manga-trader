@@ -13,13 +13,15 @@
         <h1>Welcome, ${user.username}!</h1>
     </div>
 
+    <button class="btn btn-secondary">Edit your profile</button>
+
     <h2>Your ads:</h2>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h4>${ad.title}</h4>
             <p>${ad.description}</p>
-            <button class="btn btn-primary">Edit this ad</button>
+            <a href="${pageContext.request.contextPath}/ads/updateads?ad_id=${ad.id}"><button class="btn btn-primary">Edit this ad</button></a>
             <button class="btn btn-primary">Delete this ad</button>
         </div>
     </c:forEach>

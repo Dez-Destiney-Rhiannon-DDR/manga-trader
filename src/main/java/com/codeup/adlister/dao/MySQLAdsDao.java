@@ -121,4 +121,39 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    @Override
+    public Ad findById(long id) {
+        try {
+            String query = "SELECT * FROM mangas WHERE id = ? LIMIT 1";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(id));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return extractAd(rs);
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a Ad by Id", e);
+        }
+    }
+
+
+    public void update(Ad ad) {
+        String query = "UPDATE mangas set title = ?, description = ?, author = ?, year = ?, genre = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setString(3, ad.getAuthor());
+            stmt.setString(4, ad.getYear());
+            stmt.setString(5, ad.getGenre());
+            stmt.setLong(6, ad.getId());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating ad", e);
+        }
+    }
+
 }
