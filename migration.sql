@@ -17,7 +17,6 @@ CREATE TABLE mangas (
     year INT UNSIGNED NOT NULL,
     genre VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    image BLOB NOT NULL,
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),

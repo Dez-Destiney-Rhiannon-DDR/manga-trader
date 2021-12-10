@@ -45,11 +45,14 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) { //Inserting ad into db, refactored to use prepared statements
         try {
-            String sql = "INSERT INTO mangas(user_id, title, description) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO mangas(user_id, title, description, author, year, genre) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
+            stmt.setString(4, ad.getAuthor());
+            stmt.setString(5, ad.getYear());
+            stmt.setString(6, ad.getGenre());
             stmt.executeUpdate();
             ResultSet generatedIdResultSet = stmt.getGeneratedKeys();
             generatedIdResultSet.next(); /* allows user input to actually be POSTED to ads */
@@ -71,7 +74,10 @@ public class MySQLAdsDao implements Ads {
             rs.getLong("id"),
             rs.getLong("user_id"),
             rs.getString("title"),
-            rs.getString("description")
+            rs.getString("description"),
+            rs.getString("author"),
+            rs.getString("year"),
+            rs.getString("genre")
         );
     }
 
