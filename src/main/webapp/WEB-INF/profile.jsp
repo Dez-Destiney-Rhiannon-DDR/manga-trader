@@ -11,9 +11,10 @@
 
     <div class="container">
         <h1>Welcome, ${user.username}!</h1>
+        <h3>${user.bio}</h3>
     </div>
 
-    <button class="btn btn-secondary">Edit your profile</button>
+    <a href="/user/update"><button class="btn btn-secondary">Edit your profile</button></a>
     <a href="/ads/create"><button class="btn btn-secondary">Create an ad</button></a>
 
 
