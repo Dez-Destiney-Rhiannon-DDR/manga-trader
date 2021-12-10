@@ -92,10 +92,10 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
         Statement stmt = null;
         ResultSet resultSet = null;
-        String myQuery = "SELECT * FROM mangas WHERE title = ?";
+        String myQuery = "SELECT * FROM mangas WHERE title LIKE ?";
         try {
             PreparedStatement statement = connection.prepareStatement(myQuery);
-            statement.setString(1, title);
+            statement.setString(1, "%" + title + "%");
             resultSet = statement.executeQuery();
 
             return createAdsFromResults(resultSet);
