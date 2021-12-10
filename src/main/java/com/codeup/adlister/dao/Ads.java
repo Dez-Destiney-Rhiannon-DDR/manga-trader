@@ -12,4 +12,7 @@ public interface Ads {
     Long insert(Ad ad);
 
     List<Ad> searchAdsFromMangaList(String title) throws SQLException;
+
+    List<Ad> allById(Long id);
+
 }
