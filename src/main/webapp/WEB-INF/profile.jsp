@@ -11,7 +11,12 @@
 
     <div class="container">
         <h1>Welcome, ${user.username}!</h1>
+        <h3>${user.bio}</h3>
     </div>
+
+    <a href="/user/update"><button class="btn btn-secondary">Edit your profile</button></a>
+    <a href="/ads/create"><button class="btn btn-secondary">Create an ad</button></a>
+
 
     <h2>Your ads:</h2>
 
@@ -19,8 +24,8 @@
         <div class="col-md-6">
             <h4>${ad.title}</h4>
             <p>${ad.description}</p>
-            <button class="btn btn-primary">Edit this ad</button>
-            <button class="btn btn-primary">Delete this ad</button>
+            <a href="${pageContext.request.contextPath}/ads/updateads?ad_id=${ad.id}"><button class="btn btn-primary">Edit this ad</button></a>
+            <a href="${pageContext.request.contextPath}/ads/delete?ad_id=${ad.id}" onclick="return confirm('Are you sure you want to delete this item?')"><button class="btn btn-primary">Delete this ad</button></a>
         </div>
     </c:forEach>
 
