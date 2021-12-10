@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -81,4 +82,37 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
+//        try {
+//            String sql = "SELECT * FROM mangas WHERE title = ?";
+//
+//            PreparedStatement stmt = connection.prepareStatement(sql); //establishing connection
+//            stmt.setString(1, title);
+//
+//            ResultSet rs = stmt.executeQuery();
+//            if (rs.next()) { //If ad is found, retrieve this data
+//
+//                System.out.println(rs);
+//                createAdsFromResults(rs);
+//            }
+//
+//        } catch (SQLException throwables) { //If user is not found, throw exception
+//            System.out.println("Cannot find user by that name");
+//        }
+//        return null;
+        Statement stmt = null;
+        ResultSet resultSet = null;
+        String myQuery = "SELECT * FROM mangas WHERE title = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(myQuery);
+            statement.setString(1, title);
+            resultSet = statement.executeQuery();
+
+            return createAdsFromResults(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
 }
