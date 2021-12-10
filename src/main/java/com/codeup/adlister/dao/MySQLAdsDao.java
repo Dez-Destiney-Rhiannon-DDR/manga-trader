@@ -154,6 +154,23 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error updating ad", e);
         }
+
+
     }
+
+    @Override
+    public void delete(long id) {
+
+        String Query = "DELETE FROM mangas WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(Query);
+            stmt.setLong(1, id);
+            stmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad with that ID", e);
+        }
+
+    }
+
 
 }

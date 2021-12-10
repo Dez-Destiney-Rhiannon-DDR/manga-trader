@@ -22,7 +22,7 @@
             <h4>${ad.title}</h4>
             <p>${ad.description}</p>
             <a href="${pageContext.request.contextPath}/ads/updateads?ad_id=${ad.id}"><button class="btn btn-primary">Edit this ad</button></a>
-            <button class="btn btn-primary">Delete this ad</button>
+            <a href="${pageContext.request.contextPath}/ads/delete?ad_id=${ad.id}" onclick="return confirm('Are you sure you want to delete this item?')"><button class="btn btn-primary">Delete this ad</button></a>
         </div>
     </c:forEach>
 

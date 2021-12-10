@@ -18,4 +18,6 @@ public interface Ads {
     Ad findById(long ad_id);
 
     void update(Ad ad);
+
+    void delete(long id);
 }
