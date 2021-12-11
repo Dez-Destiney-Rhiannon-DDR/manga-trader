@@ -37,6 +37,10 @@
                 <label for="bio">Bio</label>
                 <input type="text" name="bio" class="form-control" id="bio" value="${bio}">
             </div>
+            <div class="form-group">
+                <label for="image">Profile Picture (Image Address)</label>
+                <input type="text" name="image" class="form-control" id="image" value="${image}">
+            </div>
             <button type="submit" class="btn btn-block btn-dark">Submit</button>
         </form>
     </form>

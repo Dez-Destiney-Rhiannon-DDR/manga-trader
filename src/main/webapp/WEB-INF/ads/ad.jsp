@@ -14,6 +14,7 @@
   </head>
   <body>
   <div class="container">
+    <img src = "${ad.image}" width="400" height="500">
       <h1>Title: ${ad.title}</h1>
       <h3>Author: ${ad.author}</h3>
        <h3>Genre: ${ad.genre}</h3>
@@ -21,6 +22,7 @@
     <h3>Description: ${ad.description}</h3>
 
       <h1>Posted By: ${username}</h1>
+      <img src = "${image}" width="300" height="300">
 
       <a href="${pageContext.request.contextPath}/ads"><button type="submit">Back to Ads</button>
       </a>

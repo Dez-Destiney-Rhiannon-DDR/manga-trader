@@ -42,7 +42,9 @@ public class MySQLUsersDao implements Users {
                         rs.getLong("id"),
                         rs.getString("username"),
                         rs.getString("email"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getString("bio"),
+                        rs.getString("image")
                 );
             }
 
@@ -67,16 +69,33 @@ public String getUserByAdId(long adFromId) {
     }
 }
 
+    public String getUserImageById(long adFromId) {
+        try {
+            String sql = "SELECT image FROM users JOIN mangas ON users.id = mangas.user_id WHERE mangas.id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, adFromId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return rs.getString("image");
+        }  catch (SQLException e) {
+            throw new RuntimeException("Error getting user info", e);
+        }
+    }
+
+
+
     @Override
     public Long insert(User user) { //Inserting created user into DB
 
         try {
-            String sql = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO users(username, email, password, bio, image) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             stmt.setString(1, user.getUsername()); //Getting value using User methods, setting them to respected value so they can be injected into user db
             stmt.setString(2, user.getEmail()); //Getting value using User methods, setting them to respected value so they can be injected into user db
             stmt.setString(3, user.getPassword()); //Getting value using User methods, setting them to respected value so they can be injected into user db
+            stmt.setString(4, user.getBio());
+            stmt.setString(5, user.getImage());
 
             stmt.executeUpdate();
             ResultSet generatedIdResultSet = stmt.getGeneratedKeys();
@@ -94,13 +113,14 @@ public String getUserByAdId(long adFromId) {
 
 
     public void update(User user) {
-        String query = "UPDATE users set username = ?, email = ?, bio = ? WHERE id = ?";
+        String query = "UPDATE users set username = ?, email = ?, bio = ?, image = ? WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getBio());
-            stmt.setLong(4, user.getId());
+            stmt.setString(4, user.getImage());
+            stmt.setLong(5, user.getId());
             stmt.executeUpdate();
 
         } catch (SQLException e) {

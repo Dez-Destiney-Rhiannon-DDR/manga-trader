@@ -12,6 +12,7 @@
     <div class="container">
         <h1>Welcome, ${user.username}!</h1>
         <h3>${user.bio}</h3>
+        <img src = "${user.image}" width="300" height="300">
     </div>
 
     <a href="/user/update"><button class="btn btn-secondary">Edit your profile</button></a>
