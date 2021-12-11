@@ -22,7 +22,6 @@
     <h3>Description: ${ad.description}</h3>
 
       <h1>Posted By: ${username}</h1>
-      <img src = "${image}" width="300" height="300">
 
       <a href="${pageContext.request.contextPath}/ads"><button type="submit">Back to Ads</button>
       </a>

@@ -25,17 +25,22 @@
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
+        <div class="row">
         <div class="col-md-6">
 
 <%--           <c:url value="${ad.image}"/>--%>
             <img src = "${ad.image}" width="400" height="500">
+
+        </div>
+        <div class="col-md-6">
             <h2>${ad.title}</h2>
-            <h3>${ad.description}</h3>
+            <p>${ad.description}</p>
 
 <%--            //add link here--%>
 
             <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}"><button type="submit">Click here for details</button>
             </a>
+        </div>
         </div>
     </c:forEach>
 </div>
