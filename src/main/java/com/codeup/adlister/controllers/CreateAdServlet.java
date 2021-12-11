@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
@@ -28,10 +29,12 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description"),
             request.getParameter("author"),
-             request.getParameter("year"),
-             request.getParameter("genre")
+            request.getParameter("year"),
+            request.getParameter("genre"),
+            new File(request.getParameter("image"))
              );
         DaoFactory.getAdsDao().insert(ad);
+        System.out.println(request.getParameter("image"));
         response.sendRedirect("/ads");
     }
 }

@@ -1,5 +1,7 @@
 package com.codeup.adlister.models;
 
+import java.io.File;
+
 public class Ad {
     private String username;
     private long id;
@@ -9,6 +11,7 @@ public class Ad {
     private String year;
     private String genre;
     private String description;
+    private File image;
 
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
@@ -23,13 +26,14 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(long userId, String title, String description, String author, String year, String genre) {
+    public Ad(long userId, String title, String description, String author, String year, String genre, File image) {
         this.userId = userId;
         this.title = title;
         this.author = author;
         this.year = year;
         this.genre = genre;
         this.description = description;
+        this.image = image;
     }
 
     public Ad(long id, long user_id, String title, String description, String author, String year, String genre) {
@@ -110,4 +114,12 @@ public class Ad {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
+    public File getImage() {
+        return image;
+    }
+
+//    public void setImage(String image) {
+//        this.image = image;
+//    }
 }

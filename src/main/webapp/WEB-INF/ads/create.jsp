@@ -29,6 +29,10 @@
                 <label for="genre">Genre</label>
                 <textarea id="genre" name="genre" class="form-control" type="text"></textarea>
             </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" ccept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>

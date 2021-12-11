@@ -26,6 +26,7 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
+            <img id="output" src="<c:out value="ads/${ad.image}"/>" width="180" height="180">
             <h2>${ad.title}</h2>
             <h3>${ad.description}</h3>
             <h6>Posted by: ${ad.userId}</h6>
