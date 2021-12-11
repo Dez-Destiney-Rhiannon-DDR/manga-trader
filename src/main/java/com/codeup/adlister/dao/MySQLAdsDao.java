@@ -141,7 +141,7 @@ public class MySQLAdsDao implements Ads {
 
 
     public void update(Ad ad) {
-        String query = "UPDATE mangas set title = ?, description = ?, author = ?, year = ?, genre = ? WHERE id = ?";
+        String query = "UPDATE mangas set title = ?, description = ?, author = ?, year = ?, genre = ?, image = ? WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, ad.getTitle());
@@ -149,7 +149,8 @@ public class MySQLAdsDao implements Ads {
             stmt.setString(3, ad.getAuthor());
             stmt.setString(4, ad.getYear());
             stmt.setString(5, ad.getGenre());
-            stmt.setLong(6, ad.getId());
+            stmt.setString(6, ad.getImage());
+            stmt.setLong(7, ad.getId());
             stmt.executeUpdate();
 
         } catch (SQLException e) {

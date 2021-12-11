@@ -30,6 +30,7 @@ public class UpdateAdsServlet extends HttpServlet {
         request.setAttribute("author", ad.getAuthor());
         request.setAttribute("year", ad.getYear());
         request.setAttribute("genre", ad.getGenre());
+        request.setAttribute("image", ad.getImage());
         request.getRequestDispatcher("/WEB-INF/ads/updateads.jsp").forward(request, response);
 
     }
@@ -42,6 +43,7 @@ public class UpdateAdsServlet extends HttpServlet {
         String updateAuthor = request.getParameter("updateAuthor");
         String updateYear = request.getParameter("updateYear");
         String updateGenre = request.getParameter("updateGenre");
+        String updateImage = request.getParameter("updateImage");
         long updateID = Long.parseLong(request.getParameter("ad_id"));
 
         if(updateTitle == null || updateTitle.isEmpty()){
@@ -69,9 +71,14 @@ public class UpdateAdsServlet extends HttpServlet {
             return;
         }
 
+        if(updateImage == null || updateImage.isEmpty()){
+            response.sendRedirect("/ads/updateads?ad_id=" + updateID);
+            return;
+        }
+
 
         User user = (User) request.getSession().getAttribute("user");
-        Ad ad = new Ad(updateID, user.getId(),updateTitle, updateDescription, updateAuthor, updateYear, updateGenre);
+        Ad ad = new Ad(updateID, user.getId(),updateTitle, updateDescription, updateAuthor, updateYear, updateGenre, updateImage);
         DaoFactory.getAdsDao().update(ad);
         response.sendRedirect("/profile");
     }

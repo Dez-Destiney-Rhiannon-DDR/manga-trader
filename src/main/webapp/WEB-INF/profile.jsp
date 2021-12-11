@@ -22,6 +22,7 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
+            <img src = "${ad.image}" width="400" height="500">
             <h4>${ad.title}</h4>
             <p>${ad.description}</p>
             <a href="${pageContext.request.contextPath}/ads/updateads?ad_id=${ad.id}"><button class="btn btn-primary">Edit this ad</button></a>

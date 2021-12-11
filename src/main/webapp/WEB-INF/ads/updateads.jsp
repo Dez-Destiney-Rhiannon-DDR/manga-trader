@@ -44,6 +44,10 @@
             <label for="updateGenre">Genre</label>
             <textarea id="updateGenre" name="updateGenre" class="form-control" type="text">${genre}</textarea>
         </div>
+        <div class="form-group">
+            <label for="updateImage">Image Address</label>
+            <textarea id="updateImage" name="updateImage" class="form-control" type="text">${image}</textarea>
+        </div>
 
         <input type="submit" class="btn btn-dark">
     </form>
