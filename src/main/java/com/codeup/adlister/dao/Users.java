@@ -12,4 +12,5 @@ public interface Users {
 
     void update(User user);
 
+    String getUserImageById(long id);
 }

@@ -23,6 +23,8 @@ public class UpdateProfileServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("email", user.getEmail());
         request.setAttribute("username", user.getUsername());
+        request.setAttribute("bio", user.getBio());
+        request.setAttribute("image", user.getImage());
 
         request.getRequestDispatcher("/WEB-INF/users/update.jsp")
                 .forward(request, response);
@@ -34,6 +36,7 @@ public class UpdateProfileServlet extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String bio = request.getParameter("bio");
+        String image = request.getParameter("image");
 
         if(username.isEmpty()){ //checks if username empty
             response.sendRedirect("/user/update");
@@ -51,6 +54,7 @@ public class UpdateProfileServlet extends HttpServlet {
         user.setUsername(username);
         user.setEmail(email);
         user.setBio(bio);
+        user.setImage(image);
         DaoFactory.getUsersDao().update(user);
         response.sendRedirect("/profile");
     }

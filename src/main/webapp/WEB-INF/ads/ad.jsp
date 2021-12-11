@@ -14,6 +14,7 @@
   </head>
   <body>
   <div class="container">
+    <img src = "${ad.image}" width="400" height="500">
       <h1>Title: ${ad.title}</h1>
       <h3>Author: ${ad.author}</h3>
        <h3>Genre: ${ad.genre}</h3>

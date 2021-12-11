@@ -6,6 +6,7 @@ public class User {
     private String email;
     private String password;
     private String bio;
+    private String image;
 
     public User() {}
 
@@ -20,6 +21,17 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(long id, String username, String email, String password, String bio, String image) {
+
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.bio = bio;
+        this.image = image;
+
     }
 
     public long getId() {
@@ -62,4 +74,11 @@ public class User {
         this.bio = bio;
     }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }
