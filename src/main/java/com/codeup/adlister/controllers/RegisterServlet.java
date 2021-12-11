@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: show the registration form
-        request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request,response); //Linking things up
+        request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response); //Linking things up
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -28,10 +29,21 @@ public class RegisterServlet extends HttpServlet {
 
 
         User user = new User(username, email, password); //Passing in created variables into new user (see user model)
+        User currentUser = DaoFactory.getUsersDao().findByUsername(user.getUsername());
+        User currentEmail = DaoFactory.getUsersDao().findByUsername(user.getEmail());
 
-        DaoFactory.getUsersDao().insert(user); //Inserting new user object into db
+        if (currentUser != null || currentEmail != null) {
 
-        response.sendRedirect("/login"); //Redirect to login once done creating their user
+            response.sendRedirect("/register");
+
+        } else {
+
+            DaoFactory.getUsersDao().insert(user); //Inserting new user object into db
+            response.sendRedirect("/login"); //Redirect to login once done creating their user
+
+        }
+
+
 
     }
 }

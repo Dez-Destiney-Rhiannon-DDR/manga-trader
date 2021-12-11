@@ -52,6 +52,21 @@ public class MySQLUsersDao implements Users {
         return null;
     }
 
+//    link adId to users username
+@Override
+public String getUserByAdId(long adFromId) {
+    try {
+        String sql = "SELECT username FROM users JOIN mangas ON users.id = mangas.user_id WHERE mangas.id = ?";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setLong(1, adFromId);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        return rs.getString("username");
+    }  catch (SQLException e) {
+        throw new RuntimeException("Error getting user info", e);
+    }
+}
+
     @Override
     public Long insert(User user) { //Inserting created user into DB
 
@@ -77,6 +92,7 @@ public class MySQLUsersDao implements Users {
     }
 
 
+
     public void update(User user) {
         String query = "UPDATE users set username = ?, email = ?, bio = ? WHERE id = ?";
         try {
@@ -91,7 +107,5 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error updating user", e);
         }
     }
-
-
 
 }

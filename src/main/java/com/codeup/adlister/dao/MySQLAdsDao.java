@@ -51,16 +51,13 @@ public class MySQLAdsDao implements Ads {
             stmt.setString(4, ad.getAuthor());
             stmt.setString(5, ad.getYear());
             stmt.setString(6, ad.getGenre());
-
-            System.out.println(ad.getImage());
-            FileInputStream fis = new FileInputStream(ad.getImage());
-            stmt.setBlob(7, fis);
+            stmt.setString(7, ad.getImage());
 
             stmt.executeUpdate();
             ResultSet generatedIdResultSet = stmt.getGeneratedKeys();
             generatedIdResultSet.next(); /* allows user input to actually be POSTED to ads */
             return generatedIdResultSet.getLong(1);
-        } catch (SQLException | FileNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
@@ -80,7 +77,8 @@ public class MySQLAdsDao implements Ads {
             rs.getString("description"),
             rs.getString("author"),
             rs.getString("year"),
-            rs.getString("genre")
+            rs.getString("genre"),
+            rs.getString("image")
         );
     }
 
@@ -95,10 +93,10 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
         Statement stmt = null;
         ResultSet resultSet = null;
-        String myQuery = "SELECT * FROM mangas WHERE title = ?";
+        String myQuery = "SELECT * FROM mangas WHERE title LIKE ?";
         try {
             PreparedStatement statement = connection.prepareStatement(myQuery);
-            statement.setString(1, title);
+            statement.setString(1, "%" + title + "%");
             resultSet = statement.executeQuery();
 
             return createAdsFromResults(resultSet);
