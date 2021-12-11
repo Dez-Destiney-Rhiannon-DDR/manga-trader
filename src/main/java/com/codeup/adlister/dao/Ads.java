@@ -14,11 +14,10 @@ public interface Ads {
 
 //    find by id
     Ad findById(long id);
+
     List<Ad> searchAdsFromMangaList(String title) throws SQLException;
 
     List<Ad> allById(Long id);
-
-    Ad findById(long ad_id);
 
     void update(Ad ad);
 
