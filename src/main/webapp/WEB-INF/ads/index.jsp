@@ -5,11 +5,15 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
+    <link rel="stylesheet" href="style/catalog.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
+
+    <h1 class="manga-catalog">Manga Catalog</h1>
+
     <h4>Search your favorite Manga!</h4>
     <div>
         <form method="GET" action="/ads-search">
@@ -22,23 +26,30 @@
         </form>
     </div>
 
-    <h1>Here Are all the ads!</h1>
-
     <c:forEach var="ad" items="${ads}">
-        <div class="row">
+        <div class="row row-margin">
         <div class="col-md-6">
 
 <%--           <c:url value="${ad.image}"/>--%>
+    <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}">
+        <div class="grid">
+        <figure class="effect-sadie">
             <img src = "${ad.image}" width="400" height="500">
+            <figcaption>
+                <p class="see-more">See More</p>
+            </figcaption>
+        </figure>
+       </div></a>
 
-        </div>
+
+    </div>
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
+            <h2 class="ad-title">${ad.title}</h2>
+            <p class="ad-desc">${ad.description}</p>
 
 <%--            //add link here--%>
 
-            <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}"><button type="submit">Click here for details</button>
+<%--            <button type="submit">Click here for details</button>--%>
             </a>
         </div>
         </div>
