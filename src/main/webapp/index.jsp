@@ -3,19 +3,31 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!"/>
+        <jsp:param name="title" value="Manga Trader"/>
     </jsp:include>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/title.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
 <div class="container">
-    <h1>Welcome to the Manga Trader!</h1>
+    <h1 class="title title-pos">Manga Trader</h1>
+    <h3 class="title mini-title-pos">マンガトレーダー</h3>
 </div>
 <div>
-    <a href="/login" class="btn btn-primary">login</a>
-    <a href="/register" class="btn btn-primary">register</a>
-    <a href="/ads" class="btn btn-primary">Manga Catalog</a>
-
+    <div class="btn-container-1 col text-center">
+    <a style="font-family: 'Merriweather Sans', sans-serif !important;" href="/login" class="btn btn-primary" role="button">Login</a>
+    </div>
+    <div class="btn-container-2 col text-center">
+    <a style="font-family: 'Merriweather Sans', sans-serif !important;" href="/register" class="btn btn-primary" role="button">Register</a>
+    </div>
+    <div class="btn-container-3 col text-center">
+    <a style="font-family: 'Merriweather Sans', sans-serif !important;" href="/ads" class="btn btn-primary" role="button">Manga Catalog</a>
+    </div>
 
 </div>
 </body>

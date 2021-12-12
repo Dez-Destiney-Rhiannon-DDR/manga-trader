@@ -5,40 +5,57 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/catalog.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h4>Search your favorite Manga!</h4>
+    <div class=" col-md-9">
+
+    <h1 class="manga-catalog">Manga Catalog</h1>
+
     <div>
         <form method="GET" action="/ads-search">
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">Search</label>
                 <input id="title" name="q" class="form-control" type="text">
             </div>
+
             <input type="submit" class="btn btn-primary" value="Search">
 
         </form>
     </div>
-
-    <h1>Here Are all the ads!</h1>
+    </div>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="row">
+        <div class="row row-margin">
         <div class="col-md-6">
 
 <%--           <c:url value="${ad.image}"/>--%>
+    <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}">
+        <div class="grid grow">
+        <figure class="effect-sadie grow">
             <img src = "${ad.image}" width="400" height="500">
+            <figcaption>
+                <p class="see-more grow">See More</p>
+            </figcaption>
+        </figure>
+       </div></a>
 
-        </div>
+
+    </div>
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
+            <h2 class="ad-title">${ad.title}</h2>
+            <p class="ad-desc">${ad.description}</p>
 
 <%--            //add link here--%>
 
-            <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}"><button type="submit">Click here for details</button>
+<%--            <button type="submit">Click here for details</button>--%>
             </a>
         </div>
         </div>

@@ -1,0 +1,63 @@
+body {
+    background-color: black;
+}
+
+.title-pos {
+    font-size: 75px;
+    margin-top: -175px;
+}
+
+.mini-title-pos {
+    font-size: 45px;
+    margin-top: -50px;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    text-transform: uppercase;
+    font-family: verdana;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 6px 1px #919191,
+    1px 7px 1px #919191,
+    1px 8px 1px #919191,
+    1px 9px 1px #919191,
+    1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+.btn-primary {
+    background-color: #444444 !important;
+    border: none !important;
+    font-size: 20px;
+    font-family: 'Merriweather Sans', sans-serif !important;
+}
+
+.btn-primary:hover {
+    background-color: #333333 !important;
+    border: none !important;
+}
+
+.btn-container-1 {
+    margin-top: 425px !important;
+}
+
+.btn-container-2 {
+    margin-top: 25px;
+}
+
+.btn-container-3 {
+    margin-top: 25px;
+}
