@@ -21,12 +21,10 @@
 
     <div>
         <form method="GET" action="/ads-search">
-            <div class="form-group">
-                <label for="title">Search</label>
-                <input id="title" name="q" class="form-control" type="text">
+            <div class="form-group d-flex">
+                <input id="title" name="q" class="form-control mr-1" type="text">&nbsp;
+                <input type="submit" class="btn btn-primary" value="Search">
             </div>
-
-            <input type="submit" class="btn btn-primary" value="Search">
 
         </form>
     </div>

@@ -18,6 +18,8 @@ body {
 }
 
 .manga-catalog {
+    font-family: 'Merriweather', serif;
+    font-size: 55px;
     color: white;
     margin-top: 75px;
     margin-bottom: 50px;
@@ -94,3 +96,16 @@ figure.effect-sadie:hover p {
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.1); }
+
+.btn-primary {
+    background-color: #444444 !important;
+    border: none !important;
+    font-size: 15px;
+    font-family: 'Merriweather Sans', sans-serif !important;
+}
+
+.btn-primary:hover {
+    background-color: #333333 !important;
+    border: none !important;
+}
+
