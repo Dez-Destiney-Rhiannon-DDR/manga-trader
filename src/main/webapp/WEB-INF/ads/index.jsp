@@ -5,6 +5,9 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/catalog.css">
 </head>
 <body>
@@ -12,19 +15,21 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
+    <div class=" col-md-9">
 
     <h1 class="manga-catalog">Manga Catalog</h1>
 
-    <h4>Search your favorite Manga!</h4>
     <div>
         <form method="GET" action="/ads-search">
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">Search</label>
                 <input id="title" name="q" class="form-control" type="text">
             </div>
+
             <input type="submit" class="btn btn-primary" value="Search">
 
         </form>
+    </div>
     </div>
 
     <c:forEach var="ad" items="${ads}">
