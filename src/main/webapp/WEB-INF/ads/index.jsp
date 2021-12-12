@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style/catalog.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
 
@@ -32,11 +33,11 @@
 
 <%--           <c:url value="${ad.image}"/>--%>
     <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}">
-        <div class="grid">
-        <figure class="effect-sadie">
+        <div class="grid grow">
+        <figure class="effect-sadie grow">
             <img src = "${ad.image}" width="400" height="500">
             <figcaption>
-                <p class="see-more">See More</p>
+                <p class="see-more grow">See More</p>
             </figcaption>
         </figure>
        </div></a>

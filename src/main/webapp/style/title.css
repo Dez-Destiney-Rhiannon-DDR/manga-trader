@@ -50,7 +50,7 @@ body {
 }
 
 .btn-container-1 {
-    margin-top: 425px;
+    margin-top: 425px !important;
 }
 
 .btn-container-2 {

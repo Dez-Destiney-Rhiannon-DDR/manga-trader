@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style/title.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
 <div class="container">
     <h1 class="title title-pos">Manga Trader</h1>
     <h3 class="title mini-title-pos">マンガトレーダー</h3>
