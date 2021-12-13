@@ -21,7 +21,7 @@
         <div class="col-md-6">
             <h1 class="welcome">Welcome, ${user.username}!</h1>
             <h3 class="bio">${user.bio}</h3>
-            <a href="/user/update"><button class="btn btn-primary">Edit your profile</button></a>
+            <a href="/user/update"><button class="btn btn-primary">Edit your profile</button></a>&nbsp;
             <a href="/ads/create"><button class="btn btn-primary">Create an ad</button></a>
             </div>
         </div>
