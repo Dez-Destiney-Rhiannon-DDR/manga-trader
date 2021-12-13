@@ -30,7 +30,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> all() { //retrieving all ads, refactored to use prepared statements
         Statement stmt = null;
         ResultSet resultSet = null;
-        String myQuery = "SELECT * FROM mangas";
+        String myQuery = "SELECT * FROM mangas ORDER BY id DESC";
         try {
             PreparedStatement statement = connection.prepareStatement(myQuery);
             resultSet = statement.executeQuery();
@@ -93,7 +93,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> searchAdsFromMangaList(String title) throws SQLException {
         Statement stmt = null;
         ResultSet resultSet = null;
-        String myQuery = "SELECT * FROM mangas WHERE title LIKE ?";
+        String myQuery = "SELECT * FROM mangas WHERE title LIKE ?  ORDER BY id DESC";
         try {
             PreparedStatement statement = connection.prepareStatement(myQuery);
             statement.setString(1, "%" + title + "%");
