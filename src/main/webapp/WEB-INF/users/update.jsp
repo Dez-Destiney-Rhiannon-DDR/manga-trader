@@ -23,6 +23,10 @@
                     background-color: black;
                 }
 
+                h1 {
+                    font-weight: 0 !important;
+                }
+
                 .title {
                     font-family: 'Merriweather', serif;
                     color: white;
@@ -93,6 +97,10 @@
             <div class="form-group">
                 <label class="mini-title" for="image">Profile Picture (Image Address)</label>
                 <input type="text" name="image" class="form-control" id="image" value="${image}">
+                <small id="imageHelp" class="form-text text-muted">"How do I get an image address?"<br>
+                Step 1: Search up the image of your manga on your browser (Google, Safari, etc)<br>
+                Step 2: Right click the image of your choice and select "Copy Image Address"<br>
+                Step 3: Paste the Image Address into the form</small>
             </div>
             <button type="submit" class="btn btn-block btn-primary-2">Submit</button>
         </form>

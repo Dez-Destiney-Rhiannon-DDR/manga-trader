@@ -37,7 +37,7 @@
 <%--           <c:url value="${ad.image}"/>--%>
     <a href="${pageContext.request.contextPath}/ads/view?id=${ad.id}">
         <div class="grid grow">
-        <figure class="effect-sadie grow">
+        <figure class="effect-manga grow">
             <img src = "${ad.image}" width="400" height="500">
             <figcaption>
                 <p class="see-more grow">See More</p>

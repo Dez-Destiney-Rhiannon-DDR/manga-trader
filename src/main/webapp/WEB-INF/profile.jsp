@@ -15,10 +15,10 @@
 
     <div class="container">
         <div class="row">
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-md-4 d-flex justify-content-center">
         <img class="profile-pic" src= "${user.image}" width="300" height="300">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <h1 class="welcome">Welcome, ${user.username}!</h1>
             <h3 class="bio">${user.bio}</h3>
             <a href="/user/update"><button class="btn btn-primary">Edit your profile</button></a>&nbsp;
