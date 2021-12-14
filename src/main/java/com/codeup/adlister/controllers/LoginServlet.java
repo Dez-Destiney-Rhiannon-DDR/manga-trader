@@ -36,9 +36,9 @@ public class LoginServlet extends HttpServlet {
         // TODO: make sure we find a user with that username
         if(user == null){
 //            throw new ServletException("Mandatory Parameter missing");
-            errorMsg = "no such username found";
-            register = "register";
-            request.setAttribute("register", register);
+            errorMsg = "No username found!";
+            register = "Register";
+            request.setAttribute("Register", register);
             request.setAttribute("errorMsg", errorMsg);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
@@ -52,9 +52,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user); //setting attribute to User user, which goes into the factory to see if you're in the db
             response.sendRedirect("/profile");
         } else {
-            errorMsg = "password incorrect";
-            register = "register";
-            request.setAttribute("register", register);
+            errorMsg = "Password incorrect!";
             request.setAttribute("errorMsg", errorMsg);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }

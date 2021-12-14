@@ -70,10 +70,10 @@
     <a class="btn btn-primary" href="/">Back to Homepage</a>
 
     <div class="container">
-        <div>
-        <%@ include file="partials/messages.jsp"%>
-    </div>
         <h1 class="title">Please Log In</h1>
+        <div>
+            <%@ include file="partials/messages.jsp"%>
+        </div>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label class="mini-title" for="username">Username</label>

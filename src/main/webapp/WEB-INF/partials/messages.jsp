@@ -15,7 +15,8 @@
 <body>
 <p style = "color: red">${errorMsg}
     <br>
-    <a href="/register">${register}</a>
+    <br>
+    <a href="/register">${Register}</a>
 </p>
 <%--<div class="container">--%>
 <%--    <h1 class="title title-pos pop">Manga Trader</h1>--%>
