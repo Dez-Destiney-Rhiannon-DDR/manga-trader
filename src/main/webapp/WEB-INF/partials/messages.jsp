@@ -11,10 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style/title.css">
 </head>
 <body>
-<p style = "color: red">${errorMsg}</p>
+<p style = "color: red">${errorMsg}
+    <br>
+    <a href="/register">${register}</a>
+</p>
 <%--<div class="container">--%>
 <%--    <h1 class="title title-pos pop">Manga Trader</h1>--%>
 <%--    <h3 class="title mini-title-pos">マンガトレーダー</h3>--%>

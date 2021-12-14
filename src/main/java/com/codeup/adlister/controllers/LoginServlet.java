@@ -2,7 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
-import sun.security.util.Password;
+//import sun.security.util.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String errorMsg = null;
+        String register = null;
         String username = request.getParameter("username"); //variable username
         String password = request.getParameter("password");
 
@@ -33,9 +34,11 @@ public class LoginServlet extends HttpServlet {
         // in the db
 
         // TODO: make sure we find a user with that username
-        if(user == null || password == null){
+        if(user == null){
 //            throw new ServletException("Mandatory Parameter missing");
             errorMsg = "no such username found";
+            register = "register";
+            request.setAttribute("register", register);
             request.setAttribute("errorMsg", errorMsg);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
@@ -49,7 +52,11 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user); //setting attribute to User user, which goes into the factory to see if you're in the db
             response.sendRedirect("/profile");
         } else {
-            response.sendRedirect("/login");
+            errorMsg = "password incorrect";
+            register = "register";
+            request.setAttribute("register", register);
+            request.setAttribute("errorMsg", errorMsg);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }
 }
