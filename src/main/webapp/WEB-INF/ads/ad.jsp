@@ -92,6 +92,9 @@
   </head>
   <body>
   <div class="container">
+      <div>
+          <%@ include file="../partials/messages.jsp"%>
+      </div>
     <ul>
     <li><img src = "${ad.image}" width="400" height="500"></li>
   </ul>
