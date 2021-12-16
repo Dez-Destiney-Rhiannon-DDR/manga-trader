@@ -81,6 +81,9 @@
 
     <form action="/user/update" method="post">
         <form>
+            <div>
+                <%@ include file="../partials/messages.jsp"%>
+            </div>
             <div class="form-group">
                 <label class="mini-title" for="exampleInputEmail1">Email Address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" value="${email}">

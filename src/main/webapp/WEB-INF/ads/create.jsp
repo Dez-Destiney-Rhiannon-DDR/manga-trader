@@ -65,6 +65,9 @@
 
     <div class="container">
         <h1 class="title">Create An Ad</h1>
+        <div>
+            <%@ include file="../partials/messages.jsp"%>
+        </div>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label class="mini-title" for="title">Title</label>

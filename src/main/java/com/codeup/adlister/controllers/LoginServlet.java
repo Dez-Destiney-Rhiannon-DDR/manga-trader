@@ -53,8 +53,6 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
         } else {
             errorMsg = "password incorrect";
-            register = "register";
-            request.setAttribute("register", register);
             request.setAttribute("errorMsg", errorMsg);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }

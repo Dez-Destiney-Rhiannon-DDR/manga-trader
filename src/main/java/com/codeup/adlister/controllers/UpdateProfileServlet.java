@@ -37,6 +37,7 @@ public class UpdateProfileServlet extends HttpServlet {
         String email = request.getParameter("email");
         String bio = request.getParameter("bio");
         String image = request.getParameter("image");
+        String errorMsg = null;
 
         if(username.isEmpty()){ //checks if username empty
             response.sendRedirect("/user/update");
@@ -49,7 +50,13 @@ public class UpdateProfileServlet extends HttpServlet {
         }
 
         User user = (User) request.getSession().getAttribute("user"); //get current user
-
+//
+//        if (user == null){
+//            errorMsg = "Please enter an available username";
+//            request.setAttribute("errorMsg", errorMsg);
+//            request.getRequestDispatcher("user/update.jsp").forward(request, response);
+//            return;
+//        }
 
         user.setUsername(username);
         user.setEmail(email);
